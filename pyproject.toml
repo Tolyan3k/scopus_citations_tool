@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "orcid-scrapper-tool"
+version = "1.1.0"
+description = ""
+authors = ["Anatoliy Lazovyi <Lazoviy3000@ya.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+selenium = "^4.18.1"
+loguru = "^0.7.2"
+pydantic = "^2.6.4"
+tqdm = "^4.66.2"
+
+
+[tool.poetry.group.dev.dependencies]
+yapf = "^0.40.2"
+black = "^24.3.0"
+ruff = "^0.3.3"
+pylint = "^3.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
