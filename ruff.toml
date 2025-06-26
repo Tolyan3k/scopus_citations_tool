@@ -1,0 +1,94 @@
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+line-length = 100
+indent-width = 4
+
+target-version = "py310"
+
+[lint]
+select = [ "ALL" ]
+fixable = [ "ALL" ]
+ignore = [
+    # ruff:
+    "RUF002",               # ambiguous-unicode-character-docstring
+    # flake8-annotations:
+    "ANN101",               # missing-type-self
+    "ANN202",               # missing-return-type-private-function
+    "ANN204",               # missing-return-type-special-method
+    # Ruff-specific rules:
+    "RUF001",               # ambiguous-unicode-character-string
+    "RUF003",               # ambiguous-unicode-character-comment
+    # pydocstyle:
+    "D105",                 # undocumented-magic-method
+    "D203",                 # one-blank-line-before-class
+    "D212",                 # multi-line-summary-first-line
+    "D10",                  # undocumented-...
+    "D400",                 # ends-in-period
+    "D415",                 # ends-in-punctuation
+    # pep8-naming:
+    # "N999",                 # invalid-module-name
+    # flake8-bugbear:
+    "B017",                 # assert-raises-exception
+    # flake8-pytest-style:
+    "PT011",                # pytest-raises-too-broad
+    # flake8-blind-except:
+    "BLE001",               # blind-except
+    # tryceratops:
+    "TRY002",               # raise-vanilla-class
+]
+
+[lint.isort]
+# Use a single line after each import block.
+lines-after-imports = 2
+
+
+[lint.per-file-ignores]
+"tests/*" = [
+    # flake8-bandit
+    "S101",                 # assert
+    #
+    "ANN201",               # missing-return-type-undocumented-public-function
+    "ANN001",               # missing-type-function-argument
+    #
+    "D205",                 # blank-line-after-summary
+]
+"vk_extract_audio_bot/utils/zodb_variable.py" = [
+    # flake8-annotations:
+    "ANN001",               # missing-type-function-argument
+    # pydocstyle:
+    "D105",                 # undocumented-magic-method
+]
+
+
+[format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+docstring-code-line-length = 80
