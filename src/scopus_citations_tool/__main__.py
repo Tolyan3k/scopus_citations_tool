@@ -27,7 +27,8 @@ def scrap_works_records(
 
 
 def parse_to_csv(
-    works_records: List[Tuple[OrcidWork, ScopusRecords]], out_filename: str
+    works_records: List[Tuple[OrcidWork, ScopusRecords]],
+    out_filename: str,
 ) -> None:
     logger.info(f"Writing to csv file: {out_filename}")
     with open(out_filename, "w", newline="", encoding="utf-8") as out:
@@ -90,7 +91,9 @@ def main():
         logger.exception(err)
         logger.info("Unexpected exceptions has occurred")
     finally:
-        logger.info(f"Log saved to {cli_settings.log_dir}\{logger_config.LOG_FILENAME_DEFAULT}")
+        logger.info(
+            f"Log saved to {cli_settings.log_dir}\{logger_config.LOG_FILENAME_DEFAULT}"
+        )
         if driver is not None:
             driver.close()
 
