@@ -3,6 +3,9 @@ import sys
 from loguru import logger
 
 
+LOG_FILENAME_DEFAULT = ".log"
+
+
 def config_logger(log_filename: str) -> None:
     log_config = {
         "handlers": [
